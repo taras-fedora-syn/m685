@@ -1,45 +1,30 @@
-#
-#Fingerprint
-#
-menu "Fingerprint support"
-	depends on INPUT
+config TINNO_FINGER_PRINT_SUPPORT
+  bool TINNO_FINGER_PRINT_SUPPORT
+  default n
+  help
+    Switch for tinno fingerprint
 
-config MTK_FINGERPRINT_SUPPORT
-	bool "Mediatek Fingerprint"
-	default n
-	---help---
-	Fingerprint mtk driver enable/disable in the kernel.
-	Say Y here if you want to use mediatek fingerprint driver,
-	fingerprint driver will support fingerprint function in REE,
-	it supports FPC's 102x/104x device.
+config FINGER_PRINT_CONPAT
+  bool FINGER_PRINT_CONPAT
+  default n
+  help
+    fp conpat
 
-if MTK_FINGERPRINT_SUPPORT
-config MTK_FINGERPRINT_SELECT
-	string "sensor type"
-	default "elan_fp"
 
-if MTK_FINGERPRINT_SELECT = "elan_fp"
+config FINGER_PRINT_GSL6163
+  bool FINGER_PRINT_GSL6163
+  default n
+  help
+    Sliead Fingerprint
+
 config FINGERPRINT_ELAN
-	bool "FINGERPRINT_ELAN"
-	default n
-	---help---
-	Elan Fingerprint
+  bool FINGERPRINT_ELAN
+  default n
+  help
+    Elan Fingerprint
 
-if MTK_FINGERPRINT_SELECT = "FPC1145"
-config FPC_FINGERPRINT
-	bool "FPC Fingerprint"
-	default y
-	---help---
-	FPC fingerprint FPC's 102x/104x device.
-endif
-
-if MTK_FINGERPRINT_SELECT = "GF318M"
-config GOODIX_FINGERPRINT
-	bool "Goodix Fingerprint"
-	default n
-	---help---
-	Goodix Fingerprint chip GF516/GF318GF316M/GF616M/GF318M TEE driver
-
-endif
-endif
-endmenu
+config FINGERPRINT_GOODIX_GFX1XM
+  bool FINGERPRINT_GOODIX_GFX1XM
+  default n
+  help
+    Goodix Fingerprint chip GF316M/GF516M/GF318M/
