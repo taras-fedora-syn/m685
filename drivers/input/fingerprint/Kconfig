@@ -16,8 +16,14 @@ config MTK_FINGERPRINT_SUPPORT
 if MTK_FINGERPRINT_SUPPORT
 config MTK_FINGERPRINT_SELECT
 	string "sensor type"
-	default "GF318M"
+	default "elan_fp"
 
+if MTK_FINGERPRINT_SELECT = "elan_fp"
+config FINGERPRINT_ELAN
+	bool "FINGERPRINT_ELAN"
+	default n
+	---help---
+	Elan Fingerprint
 
 if MTK_FINGERPRINT_SELECT = "FPC1145"
 config FPC_FINGERPRINT
